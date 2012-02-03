@@ -83,8 +83,6 @@
 		DD27844214DB751B00B1A5E0 = {
 			isa = PBXGroup;
 			children = (
-				DD27848814DB7A2700B1A5E0 /* libsqlite3.dylib */,
-				DD27848614DB77FF00B1A5E0 /* QuartzCore.framework */,
 				DD27845714DB751B00B1A5E0 /* TiledLayerSnapTest */,
 				DD27846E14DB752600B1A5E0 /* Alpstein Route-Me */,
 				DD27845014DB751B00B1A5E0 /* Frameworks */,
@@ -105,7 +103,9 @@
 			children = (
 				DD27845514DB751B00B1A5E0 /* CoreGraphics.framework */,
 				DD27845314DB751B00B1A5E0 /* Foundation.framework */,
+				DD27848614DB77FF00B1A5E0 /* QuartzCore.framework */,
 				DD27845114DB751B00B1A5E0 /* UIKit.framework */,
+				DD27848814DB7A2700B1A5E0 /* libsqlite3.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -364,6 +364,7 @@
 				DD27846D14DB751B00B1A5E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
