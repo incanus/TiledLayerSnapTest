@@ -12,6 +12,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSTask.h"
+
 @implementation DSMRViewController
 
 @synthesize segmentedControl;
@@ -62,7 +64,7 @@
     
     [UIImagePNGRepresentation(image) writeToFile:[NSString stringWithFormat:@"/tmp/snapshot.png"] atomically:YES];
 
-    [[[UIAlertView alloc] initWithTitle:@"Snapshot Saved" message:@"Check /tmp/snapshot.png" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
+    [NSTask launchedTaskWithLaunchPath:@"/usr/bin/open" arguments:[NSArray arrayWithObject:@"/tmp/snapshot.png"]];
 }
 
 @end
