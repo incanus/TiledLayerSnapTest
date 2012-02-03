@@ -15,7 +15,34 @@
 		DD27846214DB751B00B1A5E0 /* DSMRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD27846114DB751B00B1A5E0 /* DSMRAppDelegate.m */; };
 		DD27846514DB751B00B1A5E0 /* DSMRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD27846414DB751B00B1A5E0 /* DSMRViewController.m */; };
 		DD27846814DB751B00B1A5E0 /* DSMRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD27846614DB751B00B1A5E0 /* DSMRViewController.xib */; };
+		DD27848514DB75B800B1A5E0 /* libMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD27847F14DB75A300B1A5E0 /* libMapView.a */; };
+		DD27848714DB77FF00B1A5E0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD27848614DB77FF00B1A5E0 /* QuartzCore.framework */; };
+		DD27848914DB7A2700B1A5E0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD27848814DB7A2700B1A5E0 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD27847E14DB75A300B1A5E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD27846F14DB75A200B1A5E0 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17F31EFA1331050A00122B16;
+			remoteInfo = MapView;
+		};
+		DD27848014DB75A300B1A5E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD27846F14DB75A200B1A5E0 /* MapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BF3078F0F8AC5C0007014EE;
+			remoteInfo = "Unit Tests";
+		};
+		DD27848314DB75B300B1A5E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD27846F14DB75A200B1A5E0 /* MapView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B8C974130E8A19B2007D16AD;
+			remoteInfo = MapView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DD27844D14DB751B00B1A5E0 /* TiledLayerSnapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiledLayerSnapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +58,9 @@
 		DD27846314DB751B00B1A5E0 /* DSMRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSMRViewController.h; sourceTree = "<group>"; };
 		DD27846414DB751B00B1A5E0 /* DSMRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSMRViewController.m; sourceTree = "<group>"; };
 		DD27846714DB751B00B1A5E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DSMRViewController.xib; sourceTree = "<group>"; };
+		DD27846F14DB75A200B1A5E0 /* MapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MapView.xcodeproj; path = "alpstein-route-me/MapView/MapView.xcodeproj"; sourceTree = "<group>"; };
+		DD27848614DB77FF00B1A5E0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DD27848814DB7A2700B1A5E0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,9 +68,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD27845214DB751B00B1A5E0 /* UIKit.framework in Frameworks */,
-				DD27845414DB751B00B1A5E0 /* Foundation.framework in Frameworks */,
 				DD27845614DB751B00B1A5E0 /* CoreGraphics.framework in Frameworks */,
+				DD27845414DB751B00B1A5E0 /* Foundation.framework in Frameworks */,
+				DD27848714DB77FF00B1A5E0 /* QuartzCore.framework in Frameworks */,
+				DD27845214DB751B00B1A5E0 /* UIKit.framework in Frameworks */,
+				DD27848514DB75B800B1A5E0 /* libMapView.a in Frameworks */,
+				DD27848914DB7A2700B1A5E0 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +83,8 @@
 		DD27844214DB751B00B1A5E0 = {
 			isa = PBXGroup;
 			children = (
+				DD27848814DB7A2700B1A5E0 /* libsqlite3.dylib */,
+				DD27848614DB77FF00B1A5E0 /* QuartzCore.framework */,
 				DD27845714DB751B00B1A5E0 /* TiledLayerSnapTest */,
 				DD27846E14DB752600B1A5E0 /* Alpstein Route-Me */,
 				DD27845014DB751B00B1A5E0 /* Frameworks */,
@@ -68,9 +103,9 @@
 		DD27845014DB751B00B1A5E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD27845114DB751B00B1A5E0 /* UIKit.framework */,
-				DD27845314DB751B00B1A5E0 /* Foundation.framework */,
 				DD27845514DB751B00B1A5E0 /* CoreGraphics.framework */,
+				DD27845314DB751B00B1A5E0 /* Foundation.framework */,
+				DD27845114DB751B00B1A5E0 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,8 +137,18 @@
 		DD27846E14DB752600B1A5E0 /* Alpstein Route-Me */ = {
 			isa = PBXGroup;
 			children = (
+				DD27846F14DB75A200B1A5E0 /* MapView.xcodeproj */,
 			);
 			name = "Alpstein Route-Me";
+			sourceTree = "<group>";
+		};
+		DD27847014DB75A200B1A5E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD27847F14DB75A300B1A5E0 /* libMapView.a */,
+				DD27848114DB75A300B1A5E0 /* RM Unit Tests.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +165,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DD27848414DB75B300B1A5E0 /* PBXTargetDependency */,
 			);
 			name = TiledLayerSnapTest;
 			productName = TiledLayerSnapTest;
@@ -145,12 +191,35 @@
 			mainGroup = DD27844214DB751B00B1A5E0;
 			productRefGroup = DD27844E14DB751B00B1A5E0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DD27847014DB75A200B1A5E0 /* Products */;
+					ProjectRef = DD27846F14DB75A200B1A5E0 /* MapView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DD27844C14DB751B00B1A5E0 /* TiledLayerSnapTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DD27847F14DB75A300B1A5E0 /* libMapView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMapView.a;
+			remoteRef = DD27847E14DB75A300B1A5E0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DD27848114DB75A300B1A5E0 /* RM Unit Tests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "RM Unit Tests.app";
+			remoteRef = DD27848014DB75A300B1A5E0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DD27844B14DB751B00B1A5E0 /* Resources */ = {
@@ -176,6 +245,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD27848414DB75B300B1A5E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MapView;
+			targetProxy = DD27848314DB75B300B1A5E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DD27845A14DB751B00B1A5E0 /* InfoPlist.strings */ = {
@@ -217,7 +294,9 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/alpstein-route-me/MapView/Map/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -235,7 +314,9 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/alpstein-route-me/MapView/Map/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

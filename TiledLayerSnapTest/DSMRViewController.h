@@ -10,4 +10,10 @@
 
 @interface DSMRViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) IBOutlet UIView *containerView;
+
+- (void)changedSegment:(id)sender;
+- (IBAction)tappedGetSnapshot:(id)sender;
+
 @end

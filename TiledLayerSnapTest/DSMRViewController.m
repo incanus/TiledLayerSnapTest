@@ -8,53 +8,63 @@
 
 #import "DSMRViewController.h"
 
+#import "RMMapView.h"
+
+#import <QuartzCore/QuartzCore.h>
+
 @implementation DSMRViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
+@synthesize segmentedControl;
+@synthesize containerView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    [self.segmentedControl addTarget:self action:@selector(changedSegment:) forControlEvents:UIControlEventValueChanged];
+
+    [self changedSegment:self];
+    
+    [RMMapView class]; // avoid code stripping
 }
 
-- (void)viewDidUnload
+- (void)changedSegment:(id)sender
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    UIView *newView = nil;
+    
+    if (self.segmentedControl.selectedSegmentIndex == 0)
+    {
+        // switch to normal UIView
+        //
+        newView = [[UIView alloc] initWithFrame:self.containerView.bounds];
+        
+        newView.backgroundColor = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.2];
+    }
+    else
+    {
+        // switch to UIScrollView-based map view
+        //
+        newView = [[RMMapView alloc] initWithFrame:self.containerView.bounds];
+    }
+
+    [self.containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
+    [self.containerView addSubview:newView];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (IBAction)tappedGetSnapshot:(id)sender
 {
-    [super viewWillAppear:animated];
-}
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    [UIImagePNGRepresentation(image) writeToFile:[NSString stringWithFormat:@"/tmp/snapshot.png"] atomically:YES];
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    [[[UIAlertView alloc] initWithTitle:@"Snapshot Saved" message:@"Check /tmp/snapshot.png" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil] show];
 }
 
 @end
