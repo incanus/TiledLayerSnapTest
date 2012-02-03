@@ -23,6 +23,8 @@
 {
     [super viewDidLoad];
 
+    NSAssert([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"], @"must run in simulator");
+    
     [self.segmentedControl addTarget:self action:@selector(changedSegment:) forControlEvents:UIControlEventValueChanged];
 
     [self changedSegment:self];
