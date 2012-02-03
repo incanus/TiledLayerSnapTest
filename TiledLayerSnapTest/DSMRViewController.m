@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
 
-    NSAssert([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"], @"must run in simulator");
+    NSAssert([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"], @"must run in simulator in order to use NSTask");
     
     [self.segmentedControl addTarget:self action:@selector(changedSegment:) forControlEvents:UIControlEventValueChanged];
 
