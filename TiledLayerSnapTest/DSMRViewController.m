@@ -24,8 +24,6 @@
     [self.segmentedControl addTarget:self action:@selector(changedSegment:) forControlEvents:UIControlEventValueChanged];
 
     [self changedSegment:self];
-    
-    [RMMapView class]; // avoid code stripping
 }
 
 - (void)changedSegment:(id)sender
