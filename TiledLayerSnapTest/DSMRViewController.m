@@ -47,6 +47,8 @@
         // switch to UIScrollView-based map view
         //
         newView = [[RMMapView alloc] initWithFrame:self.containerView.bounds];
+        
+        ((RMMapView *)newView).decelerationMode = RMMapDecelerationFast;
     }
 
     [self.containerView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
