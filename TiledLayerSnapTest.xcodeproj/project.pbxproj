@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD27845214DB751B00B1A5E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD27845114DB751B00B1A5E0 /* UIKit.framework */; };
+		DD27845414DB751B00B1A5E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD27845314DB751B00B1A5E0 /* Foundation.framework */; };
+		DD27845614DB751B00B1A5E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD27845514DB751B00B1A5E0 /* CoreGraphics.framework */; };
+		DD27845C14DB751B00B1A5E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD27845A14DB751B00B1A5E0 /* InfoPlist.strings */; };
+		DD27845E14DB751B00B1A5E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD27845D14DB751B00B1A5E0 /* main.m */; };
+		DD27846214DB751B00B1A5E0 /* DSMRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD27846114DB751B00B1A5E0 /* DSMRAppDelegate.m */; };
+		DD27846514DB751B00B1A5E0 /* DSMRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD27846414DB751B00B1A5E0 /* DSMRViewController.m */; };
+		DD27846814DB751B00B1A5E0 /* DSMRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD27846614DB751B00B1A5E0 /* DSMRViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DD27844D14DB751B00B1A5E0 /* TiledLayerSnapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiledLayerSnapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD27845114DB751B00B1A5E0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DD27845314DB751B00B1A5E0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DD27845514DB751B00B1A5E0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DD27845914DB751B00B1A5E0 /* TiledLayerSnapTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TiledLayerSnapTest-Info.plist"; sourceTree = "<group>"; };
+		DD27845B14DB751B00B1A5E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DD27845D14DB751B00B1A5E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD27845F14DB751B00B1A5E0 /* TiledLayerSnapTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TiledLayerSnapTest-Prefix.pch"; sourceTree = "<group>"; };
+		DD27846014DB751B00B1A5E0 /* DSMRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSMRAppDelegate.h; sourceTree = "<group>"; };
+		DD27846114DB751B00B1A5E0 /* DSMRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSMRAppDelegate.m; sourceTree = "<group>"; };
+		DD27846314DB751B00B1A5E0 /* DSMRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSMRViewController.h; sourceTree = "<group>"; };
+		DD27846414DB751B00B1A5E0 /* DSMRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSMRViewController.m; sourceTree = "<group>"; };
+		DD27846714DB751B00B1A5E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DSMRViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD27844A14DB751B00B1A5E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD27845214DB751B00B1A5E0 /* UIKit.framework in Frameworks */,
+				DD27845414DB751B00B1A5E0 /* Foundation.framework in Frameworks */,
+				DD27845614DB751B00B1A5E0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD27844214DB751B00B1A5E0 = {
+			isa = PBXGroup;
+			children = (
+				DD27845714DB751B00B1A5E0 /* TiledLayerSnapTest */,
+				DD27846E14DB752600B1A5E0 /* Alpstein Route-Me */,
+				DD27845014DB751B00B1A5E0 /* Frameworks */,
+				DD27844E14DB751B00B1A5E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD27844E14DB751B00B1A5E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD27844D14DB751B00B1A5E0 /* TiledLayerSnapTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD27845014DB751B00B1A5E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD27845114DB751B00B1A5E0 /* UIKit.framework */,
+				DD27845314DB751B00B1A5E0 /* Foundation.framework */,
+				DD27845514DB751B00B1A5E0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD27845714DB751B00B1A5E0 /* TiledLayerSnapTest */ = {
+			isa = PBXGroup;
+			children = (
+				DD27846014DB751B00B1A5E0 /* DSMRAppDelegate.h */,
+				DD27846114DB751B00B1A5E0 /* DSMRAppDelegate.m */,
+				DD27846314DB751B00B1A5E0 /* DSMRViewController.h */,
+				DD27846414DB751B00B1A5E0 /* DSMRViewController.m */,
+				DD27846614DB751B00B1A5E0 /* DSMRViewController.xib */,
+				DD27845814DB751B00B1A5E0 /* Supporting Files */,
+			);
+			path = TiledLayerSnapTest;
+			sourceTree = "<group>";
+		};
+		DD27845814DB751B00B1A5E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD27845914DB751B00B1A5E0 /* TiledLayerSnapTest-Info.plist */,
+				DD27845A14DB751B00B1A5E0 /* InfoPlist.strings */,
+				DD27845D14DB751B00B1A5E0 /* main.m */,
+				DD27845F14DB751B00B1A5E0 /* TiledLayerSnapTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD27846E14DB752600B1A5E0 /* Alpstein Route-Me */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Alpstein Route-Me";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD27844C14DB751B00B1A5E0 /* TiledLayerSnapTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD27846B14DB751B00B1A5E0 /* Build configuration list for PBXNativeTarget "TiledLayerSnapTest" */;
+			buildPhases = (
+				DD27844914DB751B00B1A5E0 /* Sources */,
+				DD27844A14DB751B00B1A5E0 /* Frameworks */,
+				DD27844B14DB751B00B1A5E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TiledLayerSnapTest;
+			productName = TiledLayerSnapTest;
+			productReference = DD27844D14DB751B00B1A5E0 /* TiledLayerSnapTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD27844414DB751B00B1A5E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Development Seed";
+			};
+			buildConfigurationList = DD27844714DB751B00B1A5E0 /* Build configuration list for PBXProject "TiledLayerSnapTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DD27844214DB751B00B1A5E0;
+			productRefGroup = DD27844E14DB751B00B1A5E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD27844C14DB751B00B1A5E0 /* TiledLayerSnapTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD27844B14DB751B00B1A5E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD27845C14DB751B00B1A5E0 /* InfoPlist.strings in Resources */,
+				DD27846814DB751B00B1A5E0 /* DSMRViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD27844914DB751B00B1A5E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD27845E14DB751B00B1A5E0 /* main.m in Sources */,
+				DD27846214DB751B00B1A5E0 /* DSMRAppDelegate.m in Sources */,
+				DD27846514DB751B00B1A5E0 /* DSMRViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DD27845A14DB751B00B1A5E0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD27845B14DB751B00B1A5E0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DD27846614DB751B00B1A5E0 /* DSMRViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD27846714DB751B00B1A5E0 /* en */,
+			);
+			name = DSMRViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD27846914DB751B00B1A5E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DD27846A14DB751B00B1A5E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD27846C14DB751B00B1A5E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TiledLayerSnapTest/TiledLayerSnapTest-Prefix.pch";
+				INFOPLIST_FILE = "TiledLayerSnapTest/TiledLayerSnapTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DD27846D14DB751B00B1A5E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TiledLayerSnapTest/TiledLayerSnapTest-Prefix.pch";
+				INFOPLIST_FILE = "TiledLayerSnapTest/TiledLayerSnapTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD27844714DB751B00B1A5E0 /* Build configuration list for PBXProject "TiledLayerSnapTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD27846914DB751B00B1A5E0 /* Debug */,
+				DD27846A14DB751B00B1A5E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD27846B14DB751B00B1A5E0 /* Build configuration list for PBXNativeTarget "TiledLayerSnapTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD27846C14DB751B00B1A5E0 /* Debug */,
+				DD27846D14DB751B00B1A5E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD27844414DB751B00B1A5E0 /* Project object */;
+}
