@@ -58,17 +58,60 @@
 
 - (IBAction)tappedGetSnapshot:(id)sender
 {
-    UIGraphicsBeginImageContext(self.view.bounds.size);
+    if ([[self.containerView.subviews lastObject] isKindOfClass:[RMMapView class]])
+    {
+        RMMapView *mapView       = (RMMapView *)[self.containerView.subviews lastObject];
+        UIScrollView *scrollView = (UIScrollView *)[mapView.subviews objectAtIndex:1];
+        UIView *tiledView        = (UIView *)[scrollView.subviews lastObject];
+        CATiledLayer *tiledLayer = (CATiledLayer *)tiledView.layer;
+        
+        CGSize tileSize = tiledLayer.tileSize;
     
-    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        int tilesX, tilesY = 0;
     
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    [UIImagePNGRepresentation(image) writeToFile:[NSString stringWithFormat:@"/tmp/snapshot.png"] atomically:YES];
+        tilesX = ceil(scrollView.frame.size.width  / tileSize.width);
+        tilesY = ceil(scrollView.frame.size.height / tileSize.height);
+        
+        UIGraphicsBeginImageContext(CGSizeMake(tilesX * tileSize.width, tilesY * tileSize.height));
+        
+        for (int col = 0; col < tilesX; col++)
+        {
+            for (int row = 0; row < tilesY; row++)
+            {
+                UIGraphicsBeginImageContext(tileSize);
 
-    [NSTask launchedTaskWithLaunchPath:@"/usr/bin/open" arguments:[NSArray arrayWithObject:@"/tmp/snapshot.png"]];
+                CGContextRef sourceContext = UIGraphicsGetCurrentContext();
+    
+                CGRect clipRect = CGRectMake(scrollView.contentOffset.x + (col * tileSize.width), 
+                                             scrollView.contentOffset.y + (row * tileSize.height), 
+                                             tileSize.width, 
+                                             tileSize.height);
+                       
+                CGContextTranslateCTM(sourceContext, -clipRect.origin.x, -clipRect.origin.y);
+                       
+                CGContextScaleCTM(sourceContext, scrollView.zoomScale, scrollView.zoomScale);
+
+                [tiledLayer renderInContext:sourceContext];
+                       
+                UIImage *tileImage = UIGraphicsGetImageFromCurrentImageContext();
+                
+                UIGraphicsEndImageContext();
+
+                [tileImage drawInRect:CGRectMake(col * tileSize.width, 
+                                                 row * tileSize.height,
+                                                 tileSize.width, 
+                                                 tileSize.height)];
+            }
+        }
+        
+        UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+
+        UIGraphicsEndImageContext();
+        
+        [UIImagePNGRepresentation(finalImage) writeToFile:[NSString stringWithFormat:@"/tmp/snapshot.png"] atomically:YES];
+
+        [NSTask launchedTaskWithLaunchPath:@"/usr/bin/open" arguments:[NSArray arrayWithObject:@"/tmp/snapshot.png"]];
+    }
 }
 
 @end
