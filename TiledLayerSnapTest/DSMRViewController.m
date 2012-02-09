@@ -56,6 +56,15 @@
     [self.containerView addSubview:newView];
 }
 
+- (void)writeAndOpenImage:(UIImage *)image
+{
+    NSString *filename = [[NSProcessInfo processInfo] globallyUniqueString];
+    
+    [UIImagePNGRepresentation(image) writeToFile:[NSString stringWithFormat:@"/tmp/%@.png", filename] atomically:YES];
+    
+    [NSTask launchedTaskWithLaunchPath:@"/usr/bin/open" arguments:[NSArray arrayWithObject:[NSString stringWithFormat:@"/tmp/%@.png", filename]]];
+}
+
 - (IBAction)tappedGetSnapshot:(id)sender
 {
     if ([[self.containerView.subviews lastObject] isKindOfClass:[RMMapView class]])
@@ -67,13 +76,38 @@
         
         CGSize tileSize = tiledLayer.tileSize;
     
-        int tilesX, tilesY = 0;
-    
-        tilesX = ceil(scrollView.frame.size.width  / tileSize.width);
-        tilesY = ceil(scrollView.frame.size.height / tileSize.height);
+//        float scale = scrollView.zoomScale;
+//        NSLog(@"scale: %f", scale);
         
-        UIGraphicsBeginImageContext(CGSizeMake(tilesX * tileSize.width, tilesY * tileSize.height));
+        float zoom = ceilf(log2f(scrollView.zoomScale));
+//        NSLog(@"zoom: %f", zoom);
+
+        float factor = tiledView.frame.size.width / (tileSize.width * powf(2, zoom));
+//        NSLog(@"factor: %f", factor);
+
+        int perceivedTileSize = (int)(tileSize.width * factor);
+//        NSLog(@"perceived tile size: %i", perceivedTileSize);
+
+        float xoffset = scrollView.contentOffset.x;
+        float yoffset = scrollView.contentOffset.y;
+//        NSLog(@"offset: %f, %f", xoffset, yoffset);
         
+//        float xtile = roundf((xoffset * (tileSize.width  / perceivedTileSize)) / tileSize.width);
+//        float ytile = roundf((yoffset * (tileSize.height / perceivedTileSize)) / tileSize.height);
+//        NSLog(@"tile: %f, %f", xtile, ytile);
+
+        int tilesX = ceil(scrollView.frame.size.width  / perceivedTileSize) + 1;
+        int tilesY = ceil(scrollView.frame.size.height / perceivedTileSize) + 1;
+//        NSLog(@"tiles: %ix%i", tilesX, tilesY);
+        
+        UIGraphicsBeginImageContext(CGSizeMake(tilesX * perceivedTileSize, tilesY * perceivedTileSize));
+        
+//        CGContextRef destinationContext = UIGraphicsGetCurrentContext();
+        
+        CGRect clipRect;
+        
+        // TODO: parallelize
+        //
         for (int col = 0; col < tilesX; col++)
         {
             for (int row = 0; row < tilesY; row++)
@@ -81,15 +115,15 @@
                 UIGraphicsBeginImageContext(tileSize);
 
                 CGContextRef sourceContext = UIGraphicsGetCurrentContext();
-    
-                CGRect clipRect = CGRectMake(scrollView.contentOffset.x + (col * tileSize.width), 
-                                             scrollView.contentOffset.y + (row * tileSize.height), 
-                                             tileSize.width, 
-                                             tileSize.height);
-                       
+                
+                clipRect = CGRectMake(((xoffset / factor) + (col * tileSize.width)), 
+                                      ((yoffset / factor) + (row * tileSize.height)), 
+                                      tileSize.width, 
+                                      tileSize.height);
+
                 CGContextTranslateCTM(sourceContext, -clipRect.origin.x, -clipRect.origin.y);
                        
-                CGContextScaleCTM(sourceContext, scrollView.zoomScale, scrollView.zoomScale);
+                CGContextScaleCTM(sourceContext, scrollView.zoomScale / factor, scrollView.zoomScale / factor);
 
                 [tiledLayer renderInContext:sourceContext];
                        
@@ -97,20 +131,30 @@
                 
                 UIGraphicsEndImageContext();
 
-                [tileImage drawInRect:CGRectMake(col * tileSize.width, 
-                                                 row * tileSize.height,
-                                                 tileSize.width, 
-                                                 tileSize.height)];
+//                [self writeAndOpenImage:tileImage];
+                
+                [tileImage drawInRect:CGRectMake(col * perceivedTileSize, 
+                                                 row * perceivedTileSize,
+                                                 perceivedTileSize, 
+                                                 perceivedTileSize)];
             }
         }
+
+//        CGContextSetLineWidth(destinationContext, 2);
+//        CGContextSetStrokeColorWithColor(destinationContext, [[UIColor redColor] CGColor]);
+//        CGContextMoveToPoint(destinationContext, final, 0);
+//        CGContextAddLineToPoint(destinationContext, final, tilesY * perceivedTileSize);
+//        CGContextStrokePath(destinationContext);
+        
+//        CGContextAddRect(destinationContext, CGRectMake(left, top, scrollView.bounds.size.width, scrollView.bounds.size.height));
+//        CGContextSetFillColorWithColor(destinationContext, [[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.2] CGColor]);
+//        CGContextFillPath(destinationContext);
         
         UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
 
         UIGraphicsEndImageContext();
         
-        [UIImagePNGRepresentation(finalImage) writeToFile:[NSString stringWithFormat:@"/tmp/snapshot.png"] atomically:YES];
-
-        [NSTask launchedTaskWithLaunchPath:@"/usr/bin/open" arguments:[NSArray arrayWithObject:@"/tmp/snapshot.png"]];
+        [self writeAndOpenImage:finalImage];
     }
 }
 
