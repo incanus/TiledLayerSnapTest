@@ -12,7 +12,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#import "/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSTask.h"
+#import "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSTask.h"
 
 @implementation DSMRViewController
 
